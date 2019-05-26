@@ -19,6 +19,8 @@ init() {
 	DIR="$(npm root -g)"
 	cp -r "$DIR/@burninggarden/botanist/templates/project/." .
 	echo "Initialized new Typescript project in current directory."
+	git init
+	npm install
 }
 
 
