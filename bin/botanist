@@ -1,0 +1,44 @@
+#! /usr/bin/env bash
+
+display_usage() {
+	echo ""
+	echo "Usage: botanist <command>"
+	echo ""
+	echo "Where <command> is one of:"
+	echo "    init - initialize a new Typescript project in the current directory"
+	echo "    help - show this menu"
+	echo ""
+}
+
+raise_error() {
+	local error_message="$@"
+	echo "${error_message}" 1>&2;
+}
+
+init() {
+	DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+	PARENTDIR="$(dirname "$DIR")"
+	cp -r "$PARENTDIR/templates/project/." .
+	echo "Initialized new Typescript project in current directory."
+}
+
+
+argument="$1"
+
+if [[ -z $argument ]] ; then
+	display_usage
+	exit
+fi
+
+case $argument in
+	-h|--help|help)
+		display_usage
+		;;
+	-i|--init|init)
+		init
+		;;
+	*)
+		raise_error "Unknown argument: ${argument}"
+		display_usage
+		;;
+esac
