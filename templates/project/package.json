@@ -1,7 +1,7 @@
 {
 	"name": "@burninggarden/botanist",
 	"description": "Development project and server manager",
-	"version": "0.0.2",
+	"version": "0.0.1",
 	"private": false,
 	"author": "Burning Garden",
 	"homepage": "https://burninggarden.com",
@@ -20,7 +20,7 @@
 		"@types/node": "10.9.4"
 	},
 	"scripts": {
-		"init":    "./bin/init",
+		"init":    "node ./dist/src/bootstrap/init.js",
 		"install": "./bin/install",
 		"test":    "./bin/test",
 		"lint":    "./bin/lint"
