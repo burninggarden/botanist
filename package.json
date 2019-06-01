@@ -24,8 +24,10 @@
 		"botanist": "./bin/botanist"
 	},
 	"scripts": {
-		"install": "./bin/install",
-		"test":    "./bin/test",
-		"lint":    "./bin/lint"
+		"install":     "./bin/install",
+		"test":        "./bin/test",
+		"lint":        "./bin/lint",
+		"preversion":  "./bin/preversion",
+		"postversion": "./bin/postversion"
 	}
 }

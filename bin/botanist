@@ -8,6 +8,7 @@ display_usage() {
 	echo "    init    - initialize a new Typescript project in the current directory"
 	echo "    version - show the currently installed version of Botanist"
 	echo "    upgrade - upgrades Botanist on your system to the latest version"
+	echo "    bump    - performs a patch-level version bump, pushes to Git, and publishes to NPM"
 	echo "    help    - show this menu"
 	echo ""
 }
@@ -20,6 +21,7 @@ raise_error() {
 init() {
 	DIR="$(npm root -g)"
 	cp -r "$DIR/@burninggarden/botanist/templates/project/." .
+	mv .gitignore.disabled .gitignore
 	echo "Initialized new Typescript project in current directory."
 	git init
 	npm install
@@ -30,11 +32,11 @@ upgrade() {
 }
 
 print_version() {
-	echo "0.0.12"
+	node -p "require('$(npm root -g)/@burninggarden/botanist/package.json').version"
 }
 
-publish() {
-	npm test && npm lint && git push && npm publish
+bump() {
+	npm version patch
 }
 
 
@@ -58,8 +60,8 @@ case $argument in
 	-u|--upgrade|upgrade)
 		upgrade
 		;;
-	-p|--publish|publish)
-		publish
+	-b|--bump|bump)
+		bump
 		;;
 	*)
 		raise_error "Unknown argument: ${argument}"
