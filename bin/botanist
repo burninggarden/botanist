@@ -30,7 +30,7 @@ upgrade() {
 }
 
 print_version() {
-	echo "0.0.11"
+	echo "0.0.12"
 }
 
 publish() {
