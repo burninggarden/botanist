@@ -25,6 +25,18 @@ init() {
 	npm install
 }
 
+upgrade() {
+	npm update -g @burninggarden/botanist
+}
+
+print_version() {
+	echo "0.0.11"
+}
+
+publish() {
+	npm test && npm lint && git push && npm publish
+}
+
 
 argument="$1"
 
@@ -41,10 +53,13 @@ case $argument in
 		init
 		;;
 	-v|--version|version)
-		echo "0.0.11"
+		print_version
 		;;
 	-u|--upgrade|upgrade)
-		npm update -g @burninggarden/botanist
+		upgrade
+		;;
+	-p|--publish|publish)
+		publish
 		;;
 	*)
 		raise_error "Unknown argument: ${argument}"
