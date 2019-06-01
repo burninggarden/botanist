@@ -39,7 +39,10 @@ case $argument in
 		init
 		;;
 	-v|--version|version)
-		echo "0.0.8"
+		echo "0.0.9"
+		;;
+	-u|--upgrade|upgrade)
+		npm update -g @burninggarden/botanist
 		;;
 	*)
 		raise_error "Unknown argument: ${argument}"
