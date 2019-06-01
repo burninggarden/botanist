@@ -5,8 +5,10 @@ display_usage() {
 	echo "Usage: botanist <command>"
 	echo ""
 	echo "Where <command> is one of:"
-	echo "    init - initialize a new Typescript project in the current directory"
-	echo "    help - show this menu"
+	echo "    init    - initialize a new Typescript project in the current directory"
+	echo "    version - show the currently installed version of Botanist"
+	echo "    upgrade - upgrades Botanist on your system to the latest version"
+	echo "    help    - show this menu"
 	echo ""
 }
 
@@ -18,6 +20,11 @@ raise_error() {
 init() {
 	DIR="$(npm root -g)"
 	cp -r "$DIR/@burninggarden/botanist/templates/project/." .
+	# NOTE: npm is a strangle little beast, and respects any nested .gitignore
+	# files when determining which files to publish. We have some of the project
+	# template files within the .gitignore, which results in npm not bundling
+	# them during publishing.
+	mv .gitignore.disabled .gitignore
 	echo "Initialized new Typescript project in current directory."
 	git init
 	npm install
@@ -39,7 +46,7 @@ case $argument in
 		init
 		;;
 	-v|--version|version)
-		echo "0.0.9"
+		echo "0.0.10"
 		;;
 	-u|--upgrade|upgrade)
 		npm update -g @burninggarden/botanist
