@@ -38,6 +38,9 @@ case $argument in
 	-i|--init|init)
 		init
 		;;
+	-v|--version|version)
+		echo "0.0.8"
+		;;
 	*)
 		raise_error "Unknown argument: ${argument}"
 		display_usage
