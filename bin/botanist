@@ -5,11 +5,12 @@ display_usage() {
 	echo "Usage: botanist <command>"
 	echo ""
 	echo "Where <command> is one of:"
-	echo "    init    - initialize a new Typescript project in the current directory"
-	echo "    version - show the currently installed version of Botanist"
-	echo "    upgrade - upgrades Botanist on your system to the latest version"
 	echo "    bump    - performs a patch-level version bump, pushes to Git, and publishes to NPM"
 	echo "    help    - show this menu"
+	echo "    init    - initialize a new Typescript project in the current directory"
+	echo "    resync  - updates this project's scripts and config files to the latest versions in Botanist"
+	echo "    upgrade - upgrades Botanist on your system to the latest version"
+	echo "    version - show the currently installed version of Botanist"
 	echo ""
 }
 
@@ -25,6 +26,14 @@ init() {
 	echo "Initialized new Typescript project in current directory."
 	git init
 	npm install
+}
+
+resync() {
+	DIR="$(npm root -g)"
+	cp -r "$DIR/@burninggarden/botanist/templates/project/bin/." ./bin
+	cp "$DIR/@burninggarden/botanist/templates/project/.eslintrc.json" .eslintrc.json
+	cp "$DIR/@burninggarden/botanist/templates/project/tsconfig.json" tsconfig.json
+	echo "Updated local bin scripts and config files."
 }
 
 upgrade() {
@@ -48,20 +57,23 @@ if [[ -z $argument ]] ; then
 fi
 
 case $argument in
+	-b|--bump|bump)
+		bump
+		;;
 	-h|--help|help)
 		display_usage
 		;;
 	-i|--init|init)
 		init
 		;;
-	-v|--version|version)
-		print_version
+	-r|--resync|resync)
+		resync
 		;;
 	-u|--upgrade|upgrade)
 		upgrade
 		;;
-	-b|--bump|bump)
-		bump
+	-v|--version|version)
+		print_version
 		;;
 	*)
 		raise_error "Unknown argument: ${argument}"
