@@ -8,6 +8,7 @@
   "repository": "https://github.com/burninggarden/botanist",
   "preferGlobal": true,
   "dependencies": {
+    "@burninggarden/promise-wrapper": "0.0.1",
     "@types/node": "10.9.4",
     "typescript": "3.2.1"
   },
