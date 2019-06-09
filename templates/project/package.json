@@ -1,11 +1,11 @@
 {
-  "name": "@burninggarden/botanist",
-  "description": "Development project and server manager",
-  "version": "0.0.18",
+  "name": "@burninggarden/PROJECT_PLACEHOLDER",
+  "description": "Your project description here",
+  "version": "0.0.1",
   "private": false,
   "author": "Burning Garden",
   "homepage": "https://burninggarden.com",
-  "repository": "https://github.com/burninggarden/botanist",
+  "repository": "https://github.com/burninggarden/PROJECT_PLACEHOLDER",
   "preferGlobal": true,
   "dependencies": {
     "@types/node": "10.9.4",

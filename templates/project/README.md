@@ -1,3 +1,3 @@
-# Your project name here
+# PROJECT_PLACEHOLDER
 
 Your project description here
