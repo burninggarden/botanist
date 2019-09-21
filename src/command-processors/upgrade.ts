@@ -4,7 +4,7 @@ import CommandProcessor from 'command-processor';
 class UpgradeCommandProcessor extends CommandProcessor {
 
 	protected run(): Promise<any> {
-		ChildProcess.execSync('npm update -g @burninggarden/botanist');
+		ChildProcess.execSync('npm install -g @burninggarden/botanist@latest');
 		return Promise.resolve();
 	}
 
