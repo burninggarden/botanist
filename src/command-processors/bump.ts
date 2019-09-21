@@ -8,14 +8,6 @@ class BumpCommandProcessor extends CommandProcessor {
 			stdio: 'inherit'
 		});
 
-		ChildProcess.execSync('git push origin master', {
-			stdio: 'inherit'
-		});
-
-		ChildProcess.execSync('npm publish', {
-			stdio: 'inherit'
-		});
-
 		return Promise.resolve();
 	}
 
