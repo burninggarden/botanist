@@ -7,7 +7,4 @@
 
 set -e
 
-# Enable the "botanist" command to be globally available:
-sudo ln -fs $PWD/bin/botanist /usr/local/bin/botanist
-
 ./bin/compile-source-files
