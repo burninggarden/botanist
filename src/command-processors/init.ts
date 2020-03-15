@@ -54,7 +54,7 @@ class InitCommandProcessor extends CommandProcessor {
 		if (process.platform === PlatformType.DARWIN) {
 			prefix = "sed -i '' --";
 		} else {
-			prefix = 'set -i --';
+			prefix = 'sed -i --';
 		}
 
 		ChildProcess.execSync(
