@@ -38,9 +38,7 @@ abstract class CommandProcessor {
 	}
 
 	protected getBotanistPath(): string {
-		const basePath = this.getNodeModulesPath();
-
-		return basePath + '/@burninggarden/botanist';
+		return '/home/pachet/burninggarden/botanist';
 	}
 
 	protected getProjectName(): string {
