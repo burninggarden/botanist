@@ -64,6 +64,10 @@ class InitCommandProcessor extends CommandProcessor {
 		ChildProcess.execSync(
 			`${prefix} 's/${PROJECT_PLACEHOLDER}/${projectName}/g' README.md`
 		);
+
+		ChildProcess.execSync(
+			`${prefix} 's/${PROJECT_PLACEHOLDER}/${projectName}/g' test/unit/index.ts`
+		);
 	}
 
 }

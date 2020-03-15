@@ -1,7 +1,8 @@
 {
 	"env": {
 		"es6":  true,
-		"node": true
+		"node": true,
+		"jest/globals": true
 	},
 	"extends": "eslint:recommended",
 	"globals": {
@@ -9,7 +10,7 @@
 		"SharedArrayBuffer": "readonly"
 	},
 	"parser": "@typescript-eslint/parser",
-	"plugins": ["@typescript-eslint"],
+	"plugins": ["@typescript-eslint", "jest"],
 	"parserOptions": {
 		"ecmaVersion": 2018,
 		"sourceType":  "module",

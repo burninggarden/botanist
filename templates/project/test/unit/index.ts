@@ -1,6 +1,7 @@
-import Tap from 'tap';
+describe('package.json', () => {
+	it('contains expected package name', () => {
+		const manifest = require('../../../package.json');
 
-Tap.test('Empty test to ensure that test suite runs as expected', test => {
-	test.ok('It does!');
-	test.end();
+		expect(manifest.name).toStrictEqual('@burninggarden/PROJECT_PLACEHOLDER');
+	});
 });
