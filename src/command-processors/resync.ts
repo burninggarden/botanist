@@ -22,7 +22,11 @@ class ResyncCommandProcessor extends CommandProcessor {
 			`cp ${path}/templates/project/jest.config.js jest.config.js`
 		);
 
-		this.printMessage('Updated local bin scripts and config files.');
+		ChildProcess.execSync(
+			`cp ${path}/templates/project/.prettierrc .prettierrc`
+		);
+
+		this.printMessage('Updated local bin scripts and config files!');
 
 		return Promise.resolve();
 	}
